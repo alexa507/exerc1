@@ -1,0 +1,39 @@
+<div>
+    <label for="name">Hello </label>
+    <input id="name" [(ngModel)]="names.name" placeholder="name">
+</div>
+
+<div style="margin-top:50px">
+    <div>
+        <label for="font">Choose a font:</label>
+        <p-dropdown [options]="fonts" [(ngModel)]="selectedFont" optionLabel="name"></p-dropdown>
+    </div>
+
+    <div style="margin-top:20px">
+        <label for="font">Choose the size:</label>
+        <input id="size" [(ngModel)]="selectedSize" placeholder="size">
+    </div>
+
+    <div style="margin-top:20px">
+        <label for="font">Choose the alignment:</label>
+        <div class="field-radiobutton">
+            <p-radioButton name="left" value="left" [(ngModel)]="selectedAlignment" inputId="lf"></p-radioButton>
+            <label for="lf">Left</label>
+        </div>
+        <div class="field-radiobutton">
+            <p-radioButton name="center" value="center" [(ngModel)]="selectedAlignment" inputId="ce"></p-radioButton>
+            <label for="ce">Center</label>
+        </div>
+        <div class="field-radiobutton">
+            <p-radioButton name="right" value="right" [(ngModel)]="selectedAlignment" inputId="ri"></p-radioButton>
+            <label for="ri">Right</label>
+        </div>
+    </div>
+</div>
+
+<div style="margin-top:50px">
+    <p [style.font-family]="selectedFont.code" [style.font-size]="selectedSize+'px'"
+        [style.text-align]="selectedAlignment">
+        Hello {{names.name.toUpperCase()}}!
+    </p>
+</div>
